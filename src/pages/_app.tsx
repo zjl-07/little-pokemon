@@ -1,14 +1,27 @@
-import '../../styles/globals.css';
 import React from 'react';
-import type { AppProps } from 'next/app';
-import Blog from '../components/blog';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
+
+const theme = {
+	colors: {
+		primary: '#0070f3',
+	},
+};
+
+export default function App({ Component, pageProps }) {
 	return (
 		<>
-			<Component {...pageProps} />
-			<Blog />
+			<GlobalStyle />
+			<ThemeProvider theme={theme}>
+				<Component {...pageProps} />
+			</ThemeProvider>
 		</>
 	);
 }
-export default MyApp;

@@ -1,0 +1,3 @@
+- Add global styles and Folder Structuring
+- Use ContextAPI with useReducer
+- Mock API

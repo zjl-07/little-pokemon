@@ -1,4 +1,4 @@
-import React, { DOMElement, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 

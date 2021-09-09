@@ -7,11 +7,9 @@ const Title = styled.h1`
 `;
 
 export default function Blog() {
-	console.log('Blog');
-
 	return (
 		<>
-			<Title>Oh My, this is Component</Title>
+			<Title>Oh My, This is Blog Page</Title>
 		</>
 	);
 }

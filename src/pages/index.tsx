@@ -1,20 +1,25 @@
 import React, { FC } from 'react';
 import { GetServerSideProps } from 'next';
+import { Section, Content } from './styles';
+import Navbar from '@components/navbar';
 
 interface IHome {
-	posts: [];
+	data: [];
 }
 
-const Home: FC<IHome> = ({ posts }) => {
-	console.log('home', posts);
-	return <div>EMILDA</div>;
+const Home: FC<IHome> = ({ data }) => {
+	return (
+		<Section>
+			<Navbar />
+			<Content>Emilda Zhang</Content>
+		</Section>
+	);
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-	console.log('context', context);
 	return {
 		props: {
-			posts: ['home'],
+			data: ['home'],
 		},
 	};
 };

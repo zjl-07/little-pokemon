@@ -1,10 +1,8 @@
 export const primaryFont = '"PT Sans", sans-serif';
 
 export const typeScale = {
-	header1: '1.8rem',
-	header2: '1.6rem',
-	header3: '1.4rem',
-	header4: '1.2rem',
-	header5: '1.1rem',
-	paragraph: '1rem',
+	header1: '1.4rem',
+	header2: '1.2rem',
+	header3: '1rem',
+	paragraph: '0.75rem',
 };

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '@/styles/globalStyle';
 import { defaultTheme, darkTheme } from '@/styles/theme';
+import { AppProps } from 'next/dist/shared/lib/router/router';
 
-const App = ({ Component, pageProps }) => {
-	console.log('APP', pageProps);
+const App: FC<AppProps> = ({ Component, pageProps }) => {
 	return (
 		<>
 			<GlobalStyle />

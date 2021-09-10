@@ -1,4 +1,4 @@
-export const primaryFont = '"Glory", sans-serif';
+export const primaryFont = '"PT Sans", sans-serif';
 
 export const typeScale = {
 	header1: '1.8rem',

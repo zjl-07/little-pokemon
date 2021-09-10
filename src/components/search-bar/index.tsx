@@ -1,8 +1,17 @@
 import React, { FC, memo } from 'react';
-import { SearchBarContainer } from './styles';
+import { InputContainer, Input, SearchIcon } from './styles';
 
 const SearchBar: FC = () => {
-	return <SearchBarContainer>Search Bar</SearchBarContainer>;
+	return (
+		<InputContainer>
+			<SearchIcon />
+			<Input
+				name='search'
+				placeholder='Search for a country...'
+				onChange={(e) => console.log(e.target.value)}
+			/>
+		</InputContainer>
+	);
 };
 
 export default memo(SearchBar);

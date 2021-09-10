@@ -19,7 +19,7 @@ export const defaultTheme: ITheme = {
 	primaryTextColor: colors.black[200],
 	secondaryTextColor: colors.white[100],
 
-	shadowColor: `rgba(${colors.black[300]},0.5)`,
+	shadowColor: `${colors.black[300]}1f`,
 };
 
 export const darkTheme: ITheme = {
@@ -30,5 +30,5 @@ export const darkTheme: ITheme = {
 	primaryTextColor: colors.white[100],
 	secondaryTextColor: colors.white[200],
 
-	shadowColor: `rgba(${colors.black[300]},0.5)`,
+	shadowColor: colors.black[300],
 };

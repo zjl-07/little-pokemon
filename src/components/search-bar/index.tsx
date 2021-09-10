@@ -2,6 +2,8 @@ import React, { FC, memo } from 'react';
 import { InputContainer, Input, SearchIcon } from './styles';
 
 const SearchBar: FC = () => {
+	console.count('SearchBar');
+
 	return (
 		<InputContainer>
 			<SearchIcon />

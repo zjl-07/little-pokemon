@@ -16,9 +16,12 @@ import {
 } from './styles';
 
 const INITIAL_DROPDOWN_VALUE = false;
+const INITIAL_REF_VALUE = null;
 
 const FilterDropdown: FC = () => {
-	const ref = useRef<HTMLDivElement>(null);
+	console.count('FilterDropdown');
+
+	const ref = useRef<HTMLDivElement>(INITIAL_REF_VALUE);
 	const [showDropdownList, setDropdownListVisibile] = useState<boolean>(
 		INITIAL_DROPDOWN_VALUE,
 	);

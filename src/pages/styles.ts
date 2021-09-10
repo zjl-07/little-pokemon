@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-	background-color: ${({ theme }) => theme.primaryColor};
 	height: 100vh;
+	background-color: ${({ theme }) => theme.primaryColor};
+
 	font-family: ${({ theme }) => theme.primaryFont};
+	color: ${({ theme }) => theme.primaryTextColor};
 `;
 
 export const Content = styled.div`
@@ -15,5 +17,3 @@ export const Header = styled.div`
 	justify-content: space-between;
 	flex-wrap: wrap;
 `;
-
-//which on is better ? rem or px

@@ -20,6 +20,9 @@ export const Input = styled.input`
 	border: none;
 	border-radius: 0.25rem;
 
+	color: ${({ theme }) => theme.primaryTextColor};
+	background-color: ${({ theme }) => theme.secondaryColor};
+
 	&:focus-visible {
 		outline: none;
 	}

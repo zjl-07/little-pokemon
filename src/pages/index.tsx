@@ -11,6 +11,8 @@ interface IHome {
 }
 
 const Home: FC<IHome> = ({ data }) => {
+	console.count('Home');
+
 	return (
 		<Section>
 			<Navbar />

@@ -1,27 +1,18 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from '@/styles/globalStyle';
+import { defaultTheme, darkTheme } from '@/styles/theme';
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
-
-const theme = {
-	colors: {
-		primary: '#0070f3',
-	},
-};
-
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
+	console.log('APP', pageProps);
 	return (
 		<>
 			<GlobalStyle />
-			<ThemeProvider theme={theme}>
+			<ThemeProvider theme={defaultTheme}>
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</>
 	);
-}
+};
+
+export default App;

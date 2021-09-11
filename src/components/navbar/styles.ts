@@ -11,8 +11,19 @@ export const NavbarContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 
+	position: fixed;
+	top: 0;
+	width: 100%;
+
 	background-color: ${({ theme }) => theme.secondaryColor};
 	box-shadow: 0.1rem 0.1rem 0.5rem ${({ theme }) => theme.shadowColor};
+
+	@media (max-width: 450px) {
+		flex-direction: column;
+		align-items: center;
+		padding-top: 0.5rem;
+		height: 5rem;
+	}
 `;
 
 export const Title = styled.div`

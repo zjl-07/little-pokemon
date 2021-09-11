@@ -1,7 +1,18 @@
 import { actionTypesConstant } from './action';
 
+export type countryData = {
+	numericCode: number;
+	name: string;
+	capital: string;
+	population: number;
+	region: string;
+	subregion: string;
+	flag: string;
+};
+
 export interface IGlobalState {
 	useDarkTheme: boolean;
+	data: countryData[];
 }
 
 export const GlobalReducer = (
@@ -13,6 +24,11 @@ export const GlobalReducer = (
 			return {
 				...state,
 				useDarkTheme: action.payload,
+			};
+		case actionTypesConstant.SET_DATA:
+			return {
+				...state,
+				data: action.payload,
 			};
 		default:
 			return state;

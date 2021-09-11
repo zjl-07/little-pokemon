@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useContext } from 'react';
 import {
 	CountryContainer,
 	CountryCard,
@@ -6,15 +6,17 @@ import {
 	Description,
 	Title,
 } from './styles';
-import { data as DummyData } from './data';
+
+import { countryData } from '@contexts/global';
 
 interface ICountryList {
-	data: [];
+	data: countryData[];
 }
-const CountryList: FC = ({ data = DummyData }) => {
+
+const CountryList: FC<ICountryList> = ({ data }) => {
 	return (
 		<CountryContainer>
-			{data.map((country) => {
+			{data.map((country: countryData) => {
 				return (
 					<CountryCard key={country.numericCode}>
 						<img src={country.flag} width='100%'></img>

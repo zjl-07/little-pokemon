@@ -10,6 +10,7 @@ import { IGlobalState } from './reducer';
 
 const initialState: IGlobalState = {
 	useDarkTheme: false,
+	data: [],
 };
 
 export const GlobalContext = createContext(

@@ -1,4 +1,4 @@
-import React, { FC, memo, useContext } from 'react';
+import React, { FC, memo } from 'react';
 import {
 	CountryContainer,
 	CountryCard,
@@ -35,3 +35,5 @@ const CountryList: FC<ICountryList> = ({ data }) => {
 };
 
 export default memo(CountryList);
+// XMLHttpRequest
+// protocol

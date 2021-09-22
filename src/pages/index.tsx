@@ -1,12 +1,10 @@
-import React, { FC, useState, useEffect, useContext } from 'react';
+import React, { FC, useState } from 'react';
 import { GetServerSideProps } from 'next';
 
 import Navbar from '@components/navbar';
 import SearchBar from '@components/search-bar';
 import FilterDropdown from '@components/filter-dropdown';
 import CountryList from '@components/country-list';
-
-import { GlobalContext, setData } from '@contexts/global';
 
 import { Section, Content, Header } from './styles';
 
@@ -27,22 +25,18 @@ interface IHome {
 const Home: FC<IHome> = ({ data }) => {
 	console.log('home');
 
-	const [countryList, setCountryList] = useState(data);
-	const { dispatch } = useContext(GlobalContext);
-
-	useEffect(() => {
-		dispatch(setData(data));
-	}, []);
+	const [countryList] = useState(data);
+	const [filteredData, setFilteredData] = useState(data);
 
 	return (
 		<Section>
 			<Navbar />
 			<Content>
 				<Header>
-					<SearchBar setData={setCountryList} data={countryList} />
+					<SearchBar setFilteredData={setFilteredData} data={countryList} />
 					<FilterDropdown />
 				</Header>
-				<CountryList data={countryList} />
+				<CountryList data={filteredData} />
 			</Content>
 		</Section>
 	);
@@ -63,6 +57,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		console.log(error);
 	}
 
+	//axios -> transform
+	//rq?
+
 	return {
 		props: {
 			data,
@@ -70,4 +67,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	};
 };
 
-export default Home;
+export default React.memo(Home);

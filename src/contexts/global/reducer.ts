@@ -12,7 +12,6 @@ export type countryData = {
 
 export interface IGlobalState {
 	useDarkTheme: boolean;
-	data: countryData[];
 }
 
 export const GlobalReducer = (
@@ -25,11 +24,7 @@ export const GlobalReducer = (
 				...state,
 				useDarkTheme: action.payload,
 			};
-		case actionTypesConstant.SET_DATA:
-			return {
-				...state,
-				data: action.payload,
-			};
+
 		default:
 			return state;
 	}

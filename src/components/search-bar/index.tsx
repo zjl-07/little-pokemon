@@ -1,35 +1,24 @@
-import React, {
-	FC,
-	memo,
-	SetStateAction,
-	useState,
-	useCallback,
-	useContext,
-} from 'react';
+import React, { FC, memo, SetStateAction, useState, useCallback } from 'react';
 import { InputContainer, Input, SearchIcon } from './styles';
-import { countryData, GlobalContext } from '@contexts/global';
+import { countryData } from '@contexts/global';
 
 interface ISearchBar {
 	data: countryData[];
-	setData: SetStateAction<any>;
+	setFilteredData: SetStateAction<any>;
 }
 
-const SearchBar: FC<ISearchBar> = ({ data, setData }) => {
+const SearchBar: FC<ISearchBar> = ({ data, setFilteredData }) => {
 	console.count('SearchBar');
-
-	const {
-		state: { data: initialData },
-	} = useContext(GlobalContext);
 
 	const [value, setValue] = useState<string>('');
 
 	const handleSearchByName = useCallback(
 		(e, value) => {
 			if (e.keyCode === 13) {
-				const newData = initialData.filter(
+				const newData = data.filter(
 					(data) => data.name.toLowerCase().indexOf(value.toLowerCase()) == 0,
 				);
-				setData(newData);
+				setFilteredData(newData);
 			}
 		},
 		[data],

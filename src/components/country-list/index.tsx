@@ -1,4 +1,8 @@
 import React, { FC, memo, useCallback } from 'react';
+
+import { UACustomEvent } from '@utils/GTMHelper';
+import { countryData } from '@contexts/global';
+
 import {
 	CountryContainer,
 	CountryCard,
@@ -6,14 +10,12 @@ import {
 	Description,
 	Title,
 } from './styles';
-import { UACustomEvent } from '@utils/GTMHelper';
-import { countryData } from '@contexts/global';
 
-interface ICountryList {
+type countryListProps = {
 	data: countryData[];
-}
+};
 
-const CountryList: FC<ICountryList> = ({ data }) => {
+const CountryList: FC<countryListProps> = ({ data }) => {
 	const handleCardClick = useCallback((capital) => {
 		console.log('CARD CLICK');
 

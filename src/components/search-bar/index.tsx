@@ -1,16 +1,18 @@
 import React, { FC, memo, SetStateAction, useState, useCallback } from 'react';
-import { InputContainer, Input, SearchIcon } from './styles';
+
 import { countryData } from '@contexts/global';
 
-interface ISearchBar {
+import { InputContainer, Input, SearchIcon } from './styles';
+
+type searchBarProps = {
 	data: countryData[];
 	setFilteredData: SetStateAction<any>;
-}
+};
 
 const INITIAL_SEARCH_VALUE = '';
 const ENTER_KEYBOARD_CODE = 13;
 
-const SearchBar: FC<ISearchBar> = ({ data, setFilteredData }) => {
+const SearchBar: FC<searchBarProps> = ({ data, setFilteredData }) => {
 	console.count('SearchBar');
 
 	const [value, setValue] = useState<string>(INITIAL_SEARCH_VALUE);

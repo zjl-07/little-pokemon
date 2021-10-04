@@ -6,14 +6,14 @@ import React, {
 } from 'react';
 import { GlobalReducer } from './reducer';
 import { actionTypesConstant } from './action';
-import { IGlobalState } from './reducer';
+import { globalStateType } from './reducer';
 
-const initialState: IGlobalState = {
+const initialState: globalStateType = {
 	useDarkTheme: false,
 };
 
 export const GlobalContext = createContext(
-	{} as ContextType<IGlobalState, actionTypesConstant>,
+	{} as ContextType<globalStateType, actionTypesConstant>,
 );
 
 export const Store = ({ children }: { children: ReactNode }): ReactElement => {

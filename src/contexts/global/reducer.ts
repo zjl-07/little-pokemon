@@ -10,14 +10,14 @@ export type countryData = {
 	flag: string;
 };
 
-export interface IGlobalState {
+export type globalStateType = {
 	useDarkTheme: boolean;
-}
+};
 
 export const GlobalReducer = (
-	state: IGlobalState,
+	state: globalStateType,
 	action: ActionType<actionTypesConstant>,
-): IGlobalState => {
+): globalStateType => {
 	switch (action.type) {
 		case actionTypesConstant.SET_USE_DARK_THEME:
 			return {

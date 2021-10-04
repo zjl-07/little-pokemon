@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import { GetServerSideProps } from 'next';
 
 import Navbar from '@components/navbar';
@@ -7,7 +7,6 @@ import FilterDropdown from '@components/filter-dropdown';
 import CountryList from '@components/country-list';
 
 import { data as DUMMY_DATA } from '@components/country-list/data';
-import { fireGoogleAnalyticEvent } from '@utils/googleAnalytics';
 
 import { Section, Content, Header } from './styles';
 
@@ -21,24 +20,15 @@ type countryData = {
 	flag: string;
 };
 
-interface IHome {
+type homeProps = {
 	data: countryData[];
-}
+};
 
-const Home: FC<IHome> = ({ data }) => {
+const Home: FC<homeProps> = ({ data }) => {
 	console.log('home');
 
 	const [countryList] = useState(data);
 	const [filteredData, setFilteredData] = useState(data);
-
-	useEffect(() => {
-		fireGoogleAnalyticEvent({
-			eventCategory: 'Home Page',
-			eventAction: 'open_homepage',
-			eventLabel: 'open_homepage_event_label',
-			eventValue: 100,
-		});
-	}, []);
 
 	return (
 		<Section>

@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import {
 	CountryContainer,
 	CountryCard,
@@ -14,13 +14,23 @@ interface ICountryList {
 }
 
 const CountryList: FC<ICountryList> = ({ data }) => {
+	const handleCardClick = useCallback((capital) => {
+		console.log('CARD CLICK');
+
+		window.dataLayer.push({
+			event: 'ga_events',
+			eventCategory: 'Country Card',
+			eventAction: 'click_country_card',
+			eventLabel: `${capital}`,
+		});
+	}, []);
 	return (
 		<CountryContainer>
 			{data.map((country: countryData) => {
 				return (
 					<CountryCard key={country.numericCode}>
 						<img src={country.flag} width='100%'></img>
-						<Content>
+						<Content onClick={() => handleCardClick(country.capital)}>
 							<Title>{country.name}</Title>
 							<Description>Capital: {country.capital}</Description>
 							<Description>Population: {country.population}</Description>

@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { AppProps } from 'next/dist/shared/lib/router/router';
+
 import { GlobalStyle } from '@styles/globalStyle';
 import { defaultTheme, darkTheme } from '@styles/theme';
-import { AppProps } from 'next/dist/shared/lib/router/router';
+
 import { Store, GlobalContext } from '@contexts/global';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {

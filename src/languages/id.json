@@ -1,0 +1,12 @@
+{
+	"my_message": "Hari ini tanggal: {ts, date, ::yyyyMMdd}",
+    "user_name" : "Emilda Zhang",
+    "where_in_the_world":"Dimana negara?",
+    "dark_mode":"Mode Hitam",
+    "search_for_a_country":"Cari negara...",
+    "filter_by_region": "Filter Berdasarkan Daerah",
+    "country_capital" : "Ibu Kota: {capital}",
+    "country_population" : "Populasi: {population}",
+    "country_region" : "Daerah: {region}",
+    "country_subregion" : "Sub-daerah: {subregion}"
+}

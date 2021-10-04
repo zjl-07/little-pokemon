@@ -6,6 +6,8 @@ import React, {
 	useEffect,
 	useRef,
 } from 'react';
+import { FormattedMessage } from 'react-intl';
+
 import {
 	DropdownContainer,
 	DropdownList,
@@ -46,7 +48,7 @@ const FilterDropdown: FC = () => {
 	return (
 		<Container ref={ref}>
 			<DropdownContainer onClick={handleToggleDropdownList}>
-				Filter by region
+				<FormattedMessage id='filter_by_region' />
 				{showDropdownList ? <ArrowIconUp /> : <ArrowIconDown />}
 			</DropdownContainer>
 			{showDropdownList && (

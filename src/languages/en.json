@@ -1,0 +1,12 @@
+{
+	"my_message": "Todays Date: {ts, date, ::yyyyMMdd}",
+    "user_name" : "Emilda Zhang",
+    "where_in_the_world":"Where in the world ?",
+    "dark_mode":"Dark Mode",
+    "search_for_a_country":"Search for a country...",
+    "filter_by_region": "Filter by Region",
+    "country_capital" : "Capital: {capital}",
+    "country_population" : "Population: {population}",
+    "country_region" : "Region: {region}",
+    "country_subregion" : "Subregion: {subregion}"
+}

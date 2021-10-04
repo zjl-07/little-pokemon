@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, memo } from 'react';
 import { GetServerSideProps } from 'next';
 
 import Navbar from '@components/navbar';
@@ -58,4 +58,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	};
 };
 
-export default React.memo(Home);
+export default memo(Home);

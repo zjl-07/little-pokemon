@@ -22,6 +22,7 @@
       "@contexts/*": ["src/contexts/*"],
       "@configs/*": ["src/configs/*"],
       "@APIs/*": ["src/APIs/*"],
+      "@languages/*": ["src/languages/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

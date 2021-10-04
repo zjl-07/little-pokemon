@@ -1,4 +1,5 @@
 import React, { FC, memo, SetStateAction, useState, useCallback } from 'react';
+import { injectIntl } from 'react-intl';
 
 import { countryData } from '@contexts/global';
 
@@ -7,12 +8,13 @@ import { InputContainer, Input, SearchIcon } from './styles';
 type searchBarProps = {
 	data: countryData[];
 	setFilteredData: SetStateAction<any>;
+	intl: any;
 };
 
 const INITIAL_SEARCH_VALUE = '';
 const ENTER_KEYBOARD_CODE = 13;
 
-const SearchBar: FC<searchBarProps> = ({ data, setFilteredData }) => {
+const SearchBar: FC<searchBarProps> = ({ data, setFilteredData, intl }) => {
 	console.count('SearchBar');
 
 	const [value, setValue] = useState<string>(INITIAL_SEARCH_VALUE);
@@ -34,7 +36,9 @@ const SearchBar: FC<searchBarProps> = ({ data, setFilteredData }) => {
 			<SearchIcon />
 			<Input
 				name='search'
-				placeholder='Search for a country...'
+				placeholder={intl.formatMessage({
+					id: 'search_for_a_country',
+				})}
 				onChange={(e) => setValue(e.target.value)}
 				onKeyDown={(e) => handleSearchByName(e, value)}
 			/>
@@ -42,4 +46,4 @@ const SearchBar: FC<searchBarProps> = ({ data, setFilteredData }) => {
 	);
 };
 
-export default memo(SearchBar);
+export default injectIntl(memo(SearchBar));

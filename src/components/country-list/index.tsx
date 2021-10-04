@@ -1,4 +1,5 @@
 import React, { FC, memo, useCallback } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { UACustomEvent } from '@utils/GTMHelper';
 import { countryData } from '@contexts/global';
@@ -27,18 +28,36 @@ const CountryList: FC<countryListProps> = ({ data }) => {
 	}, []);
 	return (
 		<CountryContainer>
-			{data.map((country: countryData) => (
-				<CountryCard key={country.numericCode}>
-					<img src={country.flag} width='100%'></img>
-					<Content onClick={() => handleCardClick(country.capital)}>
-						<Title>{country.name}</Title>
-						<Description>Capital: {country.capital}</Description>
-						<Description>Population: {country.population}</Description>
-						<Description>Region: {country.region}</Description>
-						<Description>Subregion: {country.subregion}</Description>
-					</Content>
-				</CountryCard>
-			))}
+			{data.map(
+				({
+					capital,
+					name,
+					population,
+					region,
+					subregion,
+					flag,
+					numericCode,
+				}: countryData) => (
+					<CountryCard key={numericCode}>
+						<img src={flag} width='100%' />
+						<Content onClick={() => handleCardClick(capital)}>
+							<Title>{name}</Title>
+							<Description>
+								<FormattedMessage id='country_capital' values={{ capital }} />
+							</Description>
+							<Description>
+								<FormattedMessage id='country_population' values={{ population }} />
+							</Description>
+							<Description>
+								<FormattedMessage id='country_region' values={{ region }} />
+							</Description>
+							<Description>
+								<FormattedMessage id='country_subregion' values={{ subregion }} />
+							</Description>
+						</Content>
+					</CountryCard>
+				),
+			)}
 		</CountryContainer>
 	);
 };

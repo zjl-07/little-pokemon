@@ -7,14 +7,17 @@ interface ISearchBar {
 	setFilteredData: SetStateAction<any>;
 }
 
+const INITIAL_SEARCH_VALUE = '';
+const ENTER_KEYBOARD_CODE = 13;
+
 const SearchBar: FC<ISearchBar> = ({ data, setFilteredData }) => {
 	console.count('SearchBar');
 
-	const [value, setValue] = useState<string>('');
+	const [value, setValue] = useState<string>(INITIAL_SEARCH_VALUE);
 
 	const handleSearchByName = useCallback(
 		(e, value) => {
-			if (e.keyCode === 13) {
+			if (e.keyCode === ENTER_KEYBOARD_CODE) {
 				const newData = data.filter(
 					(data) => data.name.toLowerCase().indexOf(value.toLowerCase()) == 0,
 				);

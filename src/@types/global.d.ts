@@ -17,4 +17,7 @@ declare global {
 		state: T;
 		dispatch: Dispatch<ActionType<G>>;
 	};
+	interface Window {
+		dataLayer: any;
+	}
 }

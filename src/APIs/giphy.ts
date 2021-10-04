@@ -5,7 +5,7 @@ export default {
 	getTrendingGifs: async () => {
 		const { data, error } = await axiosHttpRequest({
 			method: 'get',
-			url: `${config.baseUrl}/v1/gifs/trending`,
+			url: `${config.API_URL}/gifs/trending?api_key=${config.API_KEY}`,
 		});
 
 		return { data, error };
@@ -14,7 +14,7 @@ export default {
 	getTrendingStickers: async () => {
 		const { data, error } = await axiosHttpRequest({
 			method: 'get',
-			url: `${config.baseUrl}/v1/stickers/trending`,
+			url: `${config.API_URL}/stickers/trending?api_key=${config.API_KEY}`,
 		});
 
 		return { data, error };

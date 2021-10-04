@@ -22,6 +22,7 @@ type countryData = {
 
 type homeProps = {
 	data: countryData[];
+	error: Error;
 };
 
 const Home: FC<homeProps> = ({ data, error }) => {

@@ -6,7 +6,7 @@ import SearchBar from '@components/search-bar';
 import FilterDropdown from '@components/filter-dropdown';
 import CountryList from '@components/country-list';
 
-import { data as DUMMY_DATA } from '@components/country-list/data';
+import countryAPI from '@APIs/country';
 
 import { Section, Content, Header } from './styles';
 
@@ -24,11 +24,13 @@ type homeProps = {
 	data: countryData[];
 };
 
-const Home: FC<homeProps> = ({ data }) => {
+const Home: FC<homeProps> = ({ data, error }) => {
 	console.log('home');
 
 	const [countryList] = useState(data);
 	const [filteredData, setFilteredData] = useState(data);
+
+	if (error) return <div>Error...</div>;
 
 	return (
 		<Section>
@@ -45,29 +47,12 @@ const Home: FC<homeProps> = ({ data }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	let data = [];
-
-	try {
-		// const options = { method: 'GET' };
-		// const response = await fetch(
-		// 	'https://restcountries.eu/rest/v2/region/europe',
-		// 	options,
-		// );
-
-		// data = await response.json();
-
-		data = await new Promise((resolve) => {
-			setTimeout(() => {
-				resolve(DUMMY_DATA);
-			}, 1000);
-		});
-	} catch (error) {
-		console.log(error);
-	}
+	const { data, error } = await countryAPI.getCountryList();
 
 	return {
 		props: {
 			data,
+			error,
 		},
 	};
 };

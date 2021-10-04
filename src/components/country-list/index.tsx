@@ -44,5 +44,3 @@ const CountryList: FC<countryListProps> = ({ data }) => {
 };
 
 export default memo(CountryList);
-// XMLHttpRequest
-// protocol

@@ -8,6 +8,8 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+import configs from '@configs/env';
+
 const renderGTMSnippet = () => (
 	<script
 		dangerouslySetInnerHTML={{
@@ -16,7 +18,7 @@ const renderGTMSnippet = () => (
 			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-			})(window,document,'script','dataLayer','GTM-MNR9SRC');
+			})(window,document,'script','dataLayer','${configs.gtmContainerId}');
 		  `,
 		}}
 	/>
@@ -25,7 +27,7 @@ const renderGTMSnippet = () => (
 const renderGTMSnippetNoScript = () => (
 	<noscript
 		dangerouslySetInnerHTML={{
-			__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNR9SRC"
+			__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${configs.gtmContainerId}}"
 			height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
 		}}
 	/>

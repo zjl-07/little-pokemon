@@ -1,15 +1,5 @@
 import { actionTypesConstant } from './action';
 
-export type countryData = {
-	numericCode: number;
-	name: string;
-	capital: string;
-	population: number;
-	region: string;
-	subregion: string;
-	flag: string;
-};
-
 export type globalStateType = {
 	useDarkTheme: boolean;
 };

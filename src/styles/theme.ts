@@ -10,6 +10,9 @@ export const defaultTheme = {
 	secondaryTextColor: colors.black[100],
 
 	shadowColor: `${colors.black[300]}1f`,
+
+	buttonPrimaryColor: `${colors.blue[100]}`,
+	buttonWarningColor: `${colors.yellow[100]}`,
 };
 
 export const darkTheme = {
@@ -21,4 +24,7 @@ export const darkTheme = {
 	secondaryTextColor: colors.white[200],
 
 	shadowColor: colors.black[300],
+
+	buttonPrimaryColor: `${colors.blue[100]}`,
+	buttonWarningColor: `${colors.yellow[100]}`,
 };

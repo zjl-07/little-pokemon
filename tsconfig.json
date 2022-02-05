@@ -23,6 +23,7 @@
       "@configs/*": ["src/configs/*"],
       "@APIs/*": ["src/APIs/*"],
       "@languages/*": ["src/languages/*"],
+      "@enums/*": ["src/enums/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.setup.js"],

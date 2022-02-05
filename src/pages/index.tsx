@@ -1,61 +1,33 @@
-import React, { FC, useState, memo } from 'react';
-import { GetServerSideProps } from 'next';
-
+import React from 'react';
 import Navbar from '@components/navbar';
-import SearchBar from '@components/search-bar';
-import FilterDropdown from '@components/filter-dropdown';
-import CountryList from '@components/country-list';
+import usePokemon from './usePokemon';
 
-import countryAPI from '@APIs/country';
+import {
+	PokemonContainer,
+	PokemonCard,
+	SeeDetailsButton,
+	Section,
+} from './styles';
 
-import { Section, Content, Header } from './styles';
+const Pokemon = () => {
+	const { isLoading, isError, pokemonList } = usePokemon();
 
-type countryData = {
-	numericCode: number;
-	name: string;
-	capital: string;
-	population: number;
-	region: string;
-	subregion: string;
-	flag: string;
-};
-
-type homeProps = {
-	data: countryData[];
-	error: Error;
-};
-
-const Home: FC<homeProps> = ({ data, error }) => {
-	console.log('home');
-
-	const [countryList] = useState(data);
-	const [filteredData, setFilteredData] = useState(data);
-
-	if (error) return <div>Error...</div>;
+	if (isLoading) return <div>isLoading...</div>;
+	if (isError) return <div>Error happen</div>;
 
 	return (
 		<Section>
-			<Navbar />
-			<Content>
-				<Header>
-					<SearchBar setFilteredData={setFilteredData} data={countryList} />
-					<FilterDropdown />
-				</Header>
-				<CountryList data={filteredData} />
-			</Content>
+			<Navbar title={'Pokemon'} />
+			<PokemonContainer>
+				{pokemonList.results.map(({ name }: { name: string }) => (
+					<PokemonCard key={name}>
+						<div>{name}</div>
+						<SeeDetailsButton>See Details</SeeDetailsButton>
+					</PokemonCard>
+				))}
+			</PokemonContainer>
 		</Section>
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const { data, error } = await countryAPI.getCountryList();
-
-	return {
-		props: {
-			data,
-			error,
-		},
-	};
-};
-
-export default memo(Home);
+export default Pokemon;

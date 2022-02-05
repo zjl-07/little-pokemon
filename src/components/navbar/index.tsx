@@ -5,9 +5,11 @@ import { GlobalContext, setUseBlackTheme } from '@contexts/global';
 
 import { NavbarContainer, Title, RightNavbarText, MoonIcon } from './styles';
 
-const Navbar: FC = () => {
-	console.count('Navbar');
+type NavbarProps = {
+	title: string;
+};
 
+const Navbar: FC<NavbarProps> = ({ title = 'country' }) => {
 	const {
 		state: { useDarkTheme },
 		dispatch,
@@ -20,7 +22,7 @@ const Navbar: FC = () => {
 	return (
 		<NavbarContainer>
 			<Title>
-				<FormattedMessage id='where_in_the_world' />
+				<FormattedMessage id={title} />
 			</Title>
 			<RightNavbarText onClick={handleSetUseDarkTheme}>
 				<MoonIcon />

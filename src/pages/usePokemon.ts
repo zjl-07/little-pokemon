@@ -11,18 +11,21 @@ const initialState = {
 		results: [],
 	},
 	page: 1,
-	limit: 20,
+	limit: 30,
 };
 
 export default function usePokemon() {
-	const { query, push } = useRouter();
-	const [{ isLoading, isError, pokemonList, page, limit }, setState] =
+	const { query } = useRouter();
+	const [{ isLoading, isError, pokemonList, limit }, setState] =
 		useState(initialState);
 
 	useEffect(() => {
 		setState((prev) => ({ ...prev, isLoading: true }));
 		async function fetchPokemonList() {
-			const { data, error } = await pokemonAPI.getPokemonList({ page, limit });
+			const { data, error } = await pokemonAPI.getPokemonList({
+				page: Number(query.page) || 1,
+				limit,
+			});
 
 			setState((prev) => ({
 				...prev,
@@ -31,8 +34,9 @@ export default function usePokemon() {
 				pokemonList: data?.data ?? prev.pokemonList,
 			}));
 		}
+
 		fetchPokemonList();
-	}, []);
+	}, [query.page]);
 
 	return {
 		isLoading,

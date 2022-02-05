@@ -9,11 +9,25 @@ import {
 	Section,
 } from './styles';
 
+import Pagination from '@components/pagination';
+
 const Pokemon = () => {
 	const { isLoading, isError, pokemonList } = usePokemon();
 
-	if (isLoading) return <div>isLoading...</div>;
-	if (isError) return <div>Error happen</div>;
+	if (isLoading)
+		return (
+			<Section>
+				<Navbar title={'Pokemon'} />
+				<div>isLoading...</div>
+			</Section>
+		);
+	if (isError)
+		return (
+			<Section>
+				<Navbar title={'Pokemon'} />
+				<div>Error...</div>
+			</Section>
+		);
 
 	return (
 		<Section>
@@ -26,6 +40,7 @@ const Pokemon = () => {
 					</PokemonCard>
 				))}
 			</PokemonContainer>
+			<Pagination page={1} size={10} />
 		</Section>
 	);
 };

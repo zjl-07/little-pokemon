@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { ModalContainer, ModalContent } from './styles';
+import { CloseButton, ModalContainer, ModalContent } from './styles';
 
 const Portal = dynamic(() => import('@components/portal'), { ssr: false });
 
@@ -11,7 +11,7 @@ const Modal = ({ visible, children, closeIcon = true, onCloseModal }) => {
 		<Portal selector={'#modal'}>
 			<ModalContainer>
 				<ModalContent>
-					<div>{closeIcon && <div onClick={onCloseModal}>X</div>}</div>
+					{closeIcon && <CloseButton onClick={onCloseModal}>X</CloseButton>}
 					{children}
 				</ModalContent>
 			</ModalContainer>

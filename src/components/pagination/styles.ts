@@ -8,7 +8,7 @@ export const PaginationContainer = styled.div`
 	font-size: ${typeScale.header1};
 
 	position: absolute;
-	bottom: 3rem;
+	bottom: 1rem;
 	right: 3rem;
 
 	& > div {

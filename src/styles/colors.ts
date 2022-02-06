@@ -10,7 +10,7 @@ export const black = {
 };
 
 export const blue = {
-	'100': '#B5EAEA',
+	'100': '#3DB2FF',
 	'200': '#2d28dc',
 	'300': '#0F0AB9',
 };

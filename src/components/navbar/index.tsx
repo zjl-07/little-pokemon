@@ -26,7 +26,7 @@ const Navbar: FC<NavbarProps> = ({ title = 'country' }) => {
 			</Title>
 			<RightNavbarText onClick={handleSetUseDarkTheme}>
 				<MoonIcon />
-				<FormattedMessage id='dark_mode' />
+				<FormattedMessage id='Dark Mode' />
 			</RightNavbarText>
 		</NavbarContainer>
 	);

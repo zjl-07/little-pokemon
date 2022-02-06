@@ -14,7 +14,7 @@ export default {
 		return { data, error };
 	},
 
-	getPokemonDetails: async ({ url }) => {
+	getPokemonDetails: async ({ url }: { url: string }) => {
 		const { data, error } = await axiosHttpRequest({
 			method: httpRequestMethod.GET,
 			url,

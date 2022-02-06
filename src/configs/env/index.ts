@@ -1,6 +1,4 @@
 export default {
-	API_URL: process.env.API_URL,
-	API_KEY: process.env.API_KEY,
-	POKEMON_API_URL: process.env.POKEMON_API_URL,
-	GTM_CONTAINER_ID: process.env.GTM_CONTAINER_ID,
+	POKEMON_API_URL: 'https://pokeapi.co/api/v2/',
+	GTM_CONTAINER_ID: 'GTM-MNR9SRC',
 };

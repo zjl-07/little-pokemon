@@ -31,8 +31,7 @@ export const axiosHttpRequest = async ({
 	data: any;
 	error: any;
 }> => {
-	let error = null,
-		data = null;
+	let error, data;
 
 	try {
 		data = await axiosRequest[`${method}`]({ url, data: body, config });
